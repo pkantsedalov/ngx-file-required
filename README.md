@@ -1,27 +1,96 @@
-# NgxFileRequired
+# ngx-file-required
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+[![Build Status](https://travis-ci.org/pkantsedalov/ngx-file-required.svg?branch=master)](https://travis-ci.org/pkantsedalov/ngx-file-required)
 
-## Development server
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Todo](#development)
 
-## Code scaffolding
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Description
 
-## Build
+Angular validation directive for setting and checking `<input type="file" />` value to be required.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Works both with one & multiple files mode.
 
-## Running unit tests
+## Installation
+`npm install ngx-file-required --save`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+or via yarn
 
-## Running end-to-end tests
+`yarn add ngx-file-required -S` (shortcut)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Usage
 
-## Further help
+1. import the module to your one:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```typescript
+    import { NgModule } from '@angular/core';
+    import { Ng2FileRequiredModule } from 'ngx-file-required';
+
+    @NgModule({
+      // other settings
+      imports: [
+        // other imports
+        Ng2FileRequiredModule
+      ]
+    })
+
+```
+
+2. then use the directive:
+
+For dynamic attributes explanation see [this stackoverflow example](https://stackoverflow.com/a/36745752/2385788).
+
+```html
+    <!-- 
+        1. Make it required by default.
+        2. The error message is a default one: 'File is required' 
+    -->
+    <input
+      type="file"
+      [(ngModel)]="myFile"
+      required="required"
+    />
+    
+    <!-- 
+        1. Make it required dynamically.
+        2. The error message is a default one: 'File is reqiured'
+    -->
+    <input
+      type="file"
+      [(ngModel)]="myFile"
+      [attr.required]="{{condition}}"
+    />
+    
+    <!-- 
+        1. Make it required by default.
+        2. The error message is customized to 'There should be a file' 
+    -->
+    <input 
+      type="file" 
+      [(ngModel)]="myFile"
+      required="required"
+      [requiredErrorMsg]="'There should be a file'" 
+    />
+
+    <!--
+        1. Make it required by default.
+        2. The error message is customized dynamically
+    -->
+    <input
+      type="file"
+      required="required"
+      [requiredErrorMsg]="customErrorMessage"
+    />
+```
+
+## Todo
+1. Demo
+2. Development guide
