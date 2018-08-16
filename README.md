@@ -28,23 +28,22 @@ or via yarn
 
 ## Usage
 
-1. import the module to your one:
+Import the module
 
 ```typescript
     import { NgModule } from '@angular/core';
-    import { Ng2FileRequiredModule } from 'ngx-file-required';
+    import { NgxFileRequiredModule } from 'ngx-file-required';
 
     @NgModule({
       // other settings
       imports: [
         // other imports
-        Ng2FileRequiredModule
+        NgxFileRequiredModule,
       ]
     })
-
 ```
 
-2. then use the directive:
+Then use the directive
 
 For dynamic attributes explanation see [this stackoverflow example](https://stackoverflow.com/a/36745752/2385788).
 
