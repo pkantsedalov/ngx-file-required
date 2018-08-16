@@ -1,0 +1,90 @@
+<form id="ngx-file-required-demo-validation">
+  <h1>Ngx File Required Directive demo</h1>
+  <div class="form-group required-file-default-container">
+    <label for="requiredFileInput">
+      <strong>Required field:</strong>
+    </label>
+    <input
+        type="file"
+        class="form-control-file"
+        id="requiredFileInput"
+        name="requiredFile"
+        #requiredFileInput="ngModel"
+        [(ngModel)]="requiredFile"
+        required
+    />
+    <div class="alert alert-success" *ngIf="requiredFileInput.valid">
+      <strong>Valid</strong>
+    </div>
+    <div class="alert alert-danger" *ngIf="requiredFileInput.invalid">
+      <strong class="required-error-msg-text">
+        {{requiredFileInput.errors.required}}
+      </strong>
+    </div>
+  </div>
+  <div class="form-group required-file-custom-error-container">
+    <label for="requiredFileWithCustomErrorMessage">
+      <strong>Custom error message:</strong>
+    </label>
+    <input
+        type="file"
+        class="form-control-file"
+        id="requiredFileWithCustomErrorMessage"
+        name="requiredFileWithCustomErrorMessage"
+        [(ngModel)]="requiredFileWithCustomErrorMessage"
+        #requiredFileCustomErrorMessageInput="ngModel"
+        required="required"
+        [requiredErrorMsg]="requiredFileErrorMessage"
+    />
+    <label for="requiredFileErrorMessage">
+      <strong>Error message:</strong>
+    </label>
+    <input
+        type="text"
+        class="form-control"
+        id="requiredFileErrorMessage"
+        name="requiredFileErrorMessage"
+        [(ngModel)]="requiredFileErrorMessage"
+        placeholder="Specify error message"
+    />
+    <div class="alert alert-success" *ngIf="requiredFileCustomErrorMessageInput.valid">
+      <strong>Valid</strong>
+    </div>
+    <div class="alert alert-danger" *ngIf="requiredFileCustomErrorMessageInput.invalid">
+      <strong class="required-error-msg-text">
+        {{requiredFileCustomErrorMessageInput.errors.required}}
+      </strong>
+    </div>
+  </div>
+  <div class="form-group toggled-file-container">
+    <label for="toggledRequiredFileInput">
+      <strong>Toggle required field:</strong>
+    </label>
+    <input
+        type="file"
+        class="form-control-file"
+        id="toggledRequiredFileInput"
+        name="toggledRequiredFile"
+        #toggledRequiredFileInput="ngModel"
+        [(ngModel)]="toggledRequiredFile"
+        [attr.required]="isRequired ? 'required' : null"
+    />
+    <label for="isRequiredCheckbox">
+      <strong>Is required:</strong>
+    </label>
+    <input
+        type="checkbox"
+        id="isRequiredCheckbox"
+        name="isRequired"
+        [(ngModel)]="isRequired"
+    />
+    <div class="alert alert-success" *ngIf="toggledRequiredFileInput.valid">
+      <strong>Valid</strong>
+    </div>
+    <div class="alert alert-danger" *ngIf="toggledRequiredFileInput.invalid">
+      <strong class="required-error-msg-text">
+        {{toggledRequiredFileInput.errors.required}}
+      </strong>
+    </div>
+  </div>
+</form>
