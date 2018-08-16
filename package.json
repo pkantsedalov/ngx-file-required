@@ -1,6 +1,12 @@
 {
   "name": "ngx-file-required",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Angular input file required directive",
+  "homepage": "https://github.com/pkantsedalov/ngx-file-required#readme",
+  "bugs": "https://github.com/pkantsedalov/ngx-file-required/issues",
+  "author": "pkantsedalov",
+  "keywords": ["angular", "file", "required", "directive", "validation"],
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,6 +17,15 @@
     "test:ci": "ng test ngx-file-required --watch=false"
   },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pkantsedalov/ngx-file-required"
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.1.0",
+    "@angular/core": "^6.1.0",
+    "@angular/forms": "^6.1.0"
+  },
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
