@@ -19,6 +19,8 @@ Angular validation directive for setting and checking `<input type="file" />` va
 
 Works both with one & multiple files mode.
 
+[Demo](https://pkantsedalov.github.io/ngx-file-required/)
+
 ## Installation
 `npm install ngx-file-required --save`
 
@@ -91,5 +93,4 @@ For dynamic attributes explanation see [this stackoverflow example](https://stac
 ```
 
 ## Todo
-1. Demo
-2. Development guide
+1. Development guide
