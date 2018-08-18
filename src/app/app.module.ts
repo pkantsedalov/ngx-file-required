@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { NgxFileRequiredDemoComponent } from './pages/required/ngx-file-required-demo.component';
+import { NgxFileRequiredDemoComponent } from './pages/root/ngx-file-required-demo.component';
 import { NgxFileRequiredModule } from '../../projects/ngx-file-required/src/lib/ngx-file-required.module';
 
 @NgModule({

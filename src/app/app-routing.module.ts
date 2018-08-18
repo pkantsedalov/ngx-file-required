@@ -3,7 +3,7 @@ import {  Routes, RouterModule  } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { NgxFileRequiredDemoComponent } from './pages/required/ngx-file-required-demo.component';
+import { NgxFileRequiredDemoComponent } from './pages/root/ngx-file-required-demo.component';
 
 const routes: Routes = [
     {
@@ -11,7 +11,7 @@ const routes: Routes = [
         component: AppComponent,
         children: [
             {
-                path:      'required',
+                path:      '',
                 component: NgxFileRequiredDemoComponent
             },
         ]
