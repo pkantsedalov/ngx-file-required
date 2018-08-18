@@ -20,7 +20,7 @@ describe('ngx-presentation App', () => {
   describe('required', () => {
 
     it('should check the default state of <input type="file" required [(ngModel)]="model" />', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getRequiredFileInput();
 
       expect(await hasClass(fileInputHtmlElement, 'ng-untouched')).toBe(true, 'no ng-untouched CSS class');
@@ -29,7 +29,7 @@ describe('ngx-presentation App', () => {
     });
 
     it('should check the state of <input type="file" required [(ngModel)]="model" /> after setting a value', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getRequiredFileInput();
 
       fileInputHtmlElement.sendKeys(path.resolve(__dirname, './test.txt'));
@@ -38,7 +38,7 @@ describe('ngx-presentation App', () => {
     });
 
     it('should check the state of <input type="file" required [(ngModel)]="model" /> after resetting a value', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getRequiredFileInput();
 
       fileInputHtmlElement.sendKeys(path.resolve(__dirname, './test.txt'));
@@ -52,14 +52,14 @@ describe('ngx-presentation App', () => {
   describe('error message', () => {
 
     it('should check the default error message', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const errorMessageHtmlElement: ElementFinder = page.getElementBySelector('.required-file-default-container .required-error-msg-text');
 
       expect(await errorMessageHtmlElement.getText() === 'File is required').toBe(true, 'no default error message');
     });
 
     it('should check the custom error message', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const errorMessageHtmlElement: ElementFinder = page
         .getElementBySelector('.required-file-custom-error-container .required-error-msg-text');
 
@@ -71,7 +71,7 @@ describe('ngx-presentation App', () => {
   describe('toggled', () => {
 
     it('should check the default state of <input type="file" [(ngModel)]="model" />', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getToggledFileInput();
 
       expect(await hasClass(fileInputHtmlElement, 'ng-untouched')).toBe(true, 'no ng-untouched CSS class');
@@ -80,7 +80,7 @@ describe('ngx-presentation App', () => {
     });
 
     it('should check the state of <input type="file" [(ngModel)]="model" /> after setting a value', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getToggledFileInput();
 
       fileInputHtmlElement.sendKeys(path.resolve(__dirname, './test.txt'));
@@ -89,7 +89,7 @@ describe('ngx-presentation App', () => {
     });
 
     it('should check the state of <input type="file" [(ngModel)]="model" /> after resetting a value', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getToggledFileInput();
 
       fileInputHtmlElement.sendKeys(path.resolve(__dirname, './test.txt'));
@@ -99,7 +99,7 @@ describe('ngx-presentation App', () => {
     });
 
     it('should check the default state of <input type="file" [(ngModel)]="model" /> after toggle a checkbox', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getToggledFileInput();
 
       expect(await hasClass(fileInputHtmlElement, 'ng-untouched')).toBe(true, 'no ng-untouched CSS class');
@@ -113,7 +113,7 @@ describe('ngx-presentation App', () => {
     });
 
     it('should check the state of <input type="file" [(ngModel)]="model" /> after setting a value and toggle a checkbox', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getToggledFileInput();
 
       fileInputHtmlElement.sendKeys(path.resolve(__dirname, './test.txt'));
@@ -127,7 +127,7 @@ describe('ngx-presentation App', () => {
     });
 
     it('should check the state of <input type="file" [(ngModel)]="model" /> after resetting a value and toggle a checkbox', async () => {
-      page.navigateTo('required');
+      page.navigateTo('');
       const fileInputHtmlElement: ElementFinder = page.getToggledFileInput();
       const isRequiredCheckbox: ElementFinder   = page.getIsRequiredCheckbox();
 

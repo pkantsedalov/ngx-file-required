@@ -1,6 +1,6 @@
 {
   "name": "ngx-file-required",
-  "version": "0.0.0-beta4",
+  "version": "0.0.0-beta5",
   "description": "Angular input file required directive",
   "homepage": "https://github.com/pkantsedalov/ngx-file-required#readme",
   "bugs": "https://github.com/pkantsedalov/ngx-file-required/issues",

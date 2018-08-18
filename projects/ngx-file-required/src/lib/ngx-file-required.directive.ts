@@ -21,7 +21,14 @@ interface FileInputEventTarget extends EventTarget {
 }
 
 @Directive({
-  selector: 'input[type="file"][attr.required][formControlName],input[type="file"][attr.required][formControl],input[type="file"][attr.required][ngModel],input[type="file"][required][formControlName],input[type="file"][required][formControl],input[type="file"][required][ngModel]',
+  selector: `
+    input[type="file"][attr.required][formControlName],
+    input[type="file"][attr.required][formControl],
+    input[type="file"][attr.required][ngModel],
+    input[type="file"][required][formControlName],
+    input[type="file"][required][formControl],
+    input[type="file"][required][ngModel]
+  `,
   exportAs:  'ngxFileRequiredDirective',
   providers: [
     {

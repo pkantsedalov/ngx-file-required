@@ -103,16 +103,14 @@ describe('NGX-FILE-REQUIRED directive', () => {
 
   describe('form', () => {
 
-    beforeEach(async () => {
-
-      return await TestBed.configureTestingModule({
+    beforeEach(() => {
+      TestBed.configureTestingModule({
         imports: [ FormsModule ],
         declarations: [
           RequiredTestComponent,
           NgxFileRequiredDirective
         ]
-      }).compileComponents();
-
+      });
     });
 
     it('should detect correct layout of input with "required" attribute', async (done: Function) => {
@@ -122,7 +120,12 @@ describe('NGX-FILE-REQUIRED directive', () => {
           set: {
             template: `
               <form>
-                  <input type="file" name="test" required [(ngModel)]="model" />
+                  <input
+                    type="file"
+                    name="test"
+                    required
+                    [(ngModel)]="model"
+                  />
               </form>
             `
           }
@@ -132,7 +135,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
         await fixture.whenStable();
         fixture.detectChanges();
 
-        inputElement = fixture.nativeElement.querySelector('input');
+        inputElement = fixture.debugElement.nativeElement.querySelector('input');
 
         expect(inputElement.classList.contains('ng-untouched')).toBe(true);
         expect(inputElement.classList.contains('ng-pristine')).toBe(true);
@@ -141,7 +144,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
         done();
       } catch (err) {
         console.error(err.message);
-        done(err);
+        throw err;
       }
 
     });
@@ -163,7 +166,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
         await fixture.whenStable();
         fixture.detectChanges();
 
-        inputElement = fixture.nativeElement.querySelector('input');
+        inputElement = inputElement = fixture.debugElement.nativeElement.querySelector('input');
 
         expect(inputElement.classList.contains('ng-untouched')).toBe(true);
         expect(inputElement.classList.contains('ng-pristine')).toBe(true);
@@ -172,7 +175,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
         done();
       } catch (err) {
         console.error(err.message);
-        done(err);
+        throw err;
       }
 
     });
@@ -194,7 +197,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
         await fixture.whenStable();
         fixture.detectChanges();
 
-        inputElement = fixture.nativeElement.querySelector('input');
+        inputElement = fixture.debugElement.nativeElement.querySelector('input');
 
         expect(inputElement.classList.contains('ng-untouched')).toBe(true);
         expect(inputElement.classList.contains('ng-pristine')).toBe(true);
@@ -203,12 +206,12 @@ describe('NGX-FILE-REQUIRED directive', () => {
         done();
       } catch (err) {
         console.error(err.message);
-        done(err);
+        throw err;
       }
 
     });
 
-    it('should detect correct layout of input with [attr.required]="{{condition ? value : null}} [true]" attribute', async (done: Function) => {
+    it('should detect correct layout of input with truthy required attribute condition', async (done: Function) => {
 
       try {
         fixture = TestBed.overrideComponent(RequiredTestComponent, {
@@ -225,7 +228,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
         await fixture.whenStable();
         fixture.detectChanges();
 
-        inputElement = fixture.nativeElement.querySelector('input');
+        inputElement = fixture.debugElement.nativeElement.querySelector('input');
 
         expect(inputElement.classList.contains('ng-untouched')).toBe(true);
         expect(inputElement.classList.contains('ng-pristine')).toBe(true);
@@ -234,12 +237,12 @@ describe('NGX-FILE-REQUIRED directive', () => {
         done();
       } catch (err) {
         console.error(err.message);
-        done(err);
+        throw err;
       }
 
     });
 
-    it('should detect correct layout of input with [attr.required]="{{condition ? value : null}} [false]" attribute', async (done: Function) => {
+    it('should detect correct layout of input with falsy required attribute condition', async (done: Function) => {
 
       try {
         fixture = TestBed.overrideComponent(RequiredTestComponent, {
@@ -256,7 +259,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
         await fixture.whenStable();
         fixture.detectChanges();
 
-        inputElement = fixture.nativeElement.querySelector('input');
+        inputElement = fixture.debugElement.nativeElement.querySelector('input');
 
         expect(inputElement.classList.contains('ng-untouched')).toBe(true);
         expect(inputElement.classList.contains('ng-pristine')).toBe(true);
@@ -265,24 +268,24 @@ describe('NGX-FILE-REQUIRED directive', () => {
         done();
       } catch (err) {
         console.error(err.message);
-        done(err);
+        throw err;
       }
 
     });
 
     describe('"multiple" attribute', () => {
 
-      it('should detect correct correct values of "multiple" property when input has a directive [a2fiRequired] and "multiple" attribute', async (done: Function) => {
+      it('should detect correct values of "multiple" property with "multiple" attribute', async (done: Function) => {
 
         try {
           fixture = TestBed.overrideComponent(RequiredTestComponent, {
             set: {
               template: `
                 <form>
-                    <input 
-                      type="file" 
-                      name="test" 
-                      multiple 
+                    <input
+                      type="file"
+                      name="test"
+                      multiple
                       required
                       [(ngModel)]="model"
                       #ngxfrd="ngxFileRequiredDirective"
@@ -307,7 +310,7 @@ describe('NGX-FILE-REQUIRED directive', () => {
 
       });
 
-      it('should detect correct correct values of "multiple" property when input has a directive [a2fiRequired] and multiple="multiple" attribute', async (done: Function) => {
+      it('should detect correct values of "multiple" property with multiple="multiple" attribute', async (done: Function) => {
 
         try {
           fixture = TestBed.overrideComponent(RequiredTestComponent, {
@@ -337,12 +340,12 @@ describe('NGX-FILE-REQUIRED directive', () => {
           done();
         } catch (err) {
           console.error(err.message);
-          done(err);
+          throw err;
         }
 
       });
 
-      it('should detect correct correct values of "multiple" property when input has a directive [a2fiRequired] and [multiple]="false" attribute', async (done: Function) => {
+      it('should detect correct correct values of "multiple" property with [multiple]="false" attribute', async (done: Function) => {
 
         try {
           fixture = TestBed.overrideComponent(RequiredTestComponent, {
