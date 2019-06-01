@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/pkantsedalov/ngx-file-required.svg?branch=master)](https://travis-ci.org/pkantsedalov/ngx-file-required)
 
+[![NPM Downloads](https://img.shields.io/npm/dt/ngx-file-required.svg)](https://img.shields.io/npm/dt/ngx-file-required.svg)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
